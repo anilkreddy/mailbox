@@ -6,6 +6,7 @@ import { provideToastr } from 'ngx-toastr';
 import { NgxsModule } from '@ngxs/store';
 
 import { routes } from './app.routes';
+import { HttpClientModule } from '@angular/common/http';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -16,6 +17,6 @@ export const appConfig: ApplicationConfig = {
       positionClass: 'toast-top-center',
       preventDuplicates: true,
     }),
-    importProvidersFrom(NgxsModule.forRoot()),
+    importProvidersFrom(NgxsModule.forRoot(), HttpClientModule),
   ],
 };

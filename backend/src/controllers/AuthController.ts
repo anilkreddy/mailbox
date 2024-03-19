@@ -32,7 +32,7 @@ class AuthController {
           data.token = token;
 
           return response
-            .status(201)
+            .status(200)
             .json({ message: 'User logged in successfully', data });
         }
       }
