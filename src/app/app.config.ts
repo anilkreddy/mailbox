@@ -6,7 +6,10 @@ import { provideToastr } from 'ngx-toastr';
 import { NgxsModule } from '@ngxs/store';
 
 import { routes } from './app.routes';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, provideHttpClient, withInterceptors } from '@angular/common/http';
+import { httpInterceptor } from './core/interceptors/http.interceptor';
+import { MessageState } from './store/MessageState';
+import { UserState } from './store/UserState';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -17,6 +20,7 @@ export const appConfig: ApplicationConfig = {
       positionClass: 'toast-top-center',
       preventDuplicates: true,
     }),
-    importProvidersFrom(NgxsModule.forRoot(), HttpClientModule),
+    importProvidersFrom(NgxsModule.forRoot([MessageState, UserState]), HttpClientModule),
+    provideHttpClient(withInterceptors([httpInterceptor]))
   ],
 };

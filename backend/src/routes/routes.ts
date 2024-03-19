@@ -14,14 +14,14 @@ router.get('/auth/logout', validateUser, AuthController.logout);
 
 router.get('/users', validateUser, UserController.getAllUsers);
 
-router.get('/message', validateUser, MessageController.getAllMessage);
-router.get('/message/:id', validateUser, MessageController.getMessage);
-router.get('/message/:id/read', validateUser, MessageController.readMessage);
+router.get('/messages', validateUser, MessageController.getAllMessage);
+router.get('/messages/:id', validateUser, MessageController.getMessage);
+router.get('/messages/:id/read', validateUser, MessageController.readMessage);
 router.get(
-  '/message/:id/delete',
+  '/messages/:id/delete',
   validateUser,
   MessageController.deleteMessage
 );
-router.post('/message', validateUser, MessageController.createMessage);
+router.post('/messages', validateUser, MessageController.createMessage);
 
 export default router;

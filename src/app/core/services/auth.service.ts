@@ -26,5 +26,12 @@ export class AuthService {
       );
   }
 
-  logout() {}
+  logout() {
+    return this.http.get(`${apiEndpoint.AuthEndpoint.logout}`).pipe(map((response) => {
+      if(response) {
+        this.tokenService.removeToken();
+      }
+      return response;
+    }));
+  }
 }

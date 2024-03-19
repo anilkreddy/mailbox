@@ -30,7 +30,7 @@ export class TokenService {
     this.updateToken(true);
   }
 
-  removeToken(token: string) {
+  removeToken() {
     localStorage.removeItem(constants.CURRENT_TOKEN);
     this.updateToken(false);
   }

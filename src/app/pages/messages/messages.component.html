@@ -9,11 +9,11 @@
             </card-title>
             <card-body>
                 <div class="border-b border-gray-200">
-                    <app-message-item></app-message-item>
-                    <app-message-item></app-message-item>                    
+                    @for (message of messages$ | async; track $index) {
+                        <app-message-item [message]="message"></app-message-item>
+                    }
                 </div>            
             </card-body>
-            
         </app-card>
     </div>
 </div>

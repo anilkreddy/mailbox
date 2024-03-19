@@ -2,9 +2,12 @@
     <div class="container py-4 flex items-center justify-between">
         <h4 class="font-bold text-xl">MailBox</h4>
         <div class="flex items-center">
-            <a routerLink="register" class="px-3 font-medium hover:text-blue-600">Register</a>
-            <a routerLink="" class="px-3 font-medium hover:text-blue-600">Login</a>            
-            <a href="" class="px-3 font-medium hover:text-blue-600">Logout</a>
+            @if (isAuthenticated$ | async) {
+                <div class="px-3 font-medium hover:text-blue-600 cursor-pointer" (click)="onLogout()">Logout</div>
+            }@else {
+                <a routerLink="/" class="px-3 font-medium hover:text-blue-600">Login</a>
+                <a routerLink="register" class="px-3 font-medium hover:text-blue-600">Register</a>                
+            }        
         </div>
     </div>
 </header>
